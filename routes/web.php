@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
 Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], function() {
     Route::get('/', function() {
     	return view('admin.users.list');
@@ -59,4 +61,9 @@ Route::group(['prefix' => 'user','namespace'=>'User', 'middleware'=> 'auth'], fu
     Route::get('/', function() {
     	return 'User Dashboard';
     });
+});
+
+Route::get('/test', function() {
+    $user = App\UserVerify::find(2);
+    return $user->user->name;
 });
