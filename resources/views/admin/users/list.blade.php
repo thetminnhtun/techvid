@@ -25,34 +25,23 @@
 							</tr>
 						</thead>
 						<tbody class=bg-light>
-							<tr>
-								<th scope="row">1</th>
-								<td>Alex</td>
-								<td>alex@email.com</td>
-								<td>Admin</td>
-								<td>2018-08-03</td>
-								<td>15:36:45</td>
-								<td>
-									<a href="#" class="btn btn-primary btn-sm">Permit</a>
-								</td>
-								<td>
-									<a href="#" class="btn btn-danger btn-sm">Ban</a>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">1</th>
-								<td>Alex</td>
-								<td>alex@email.com</td>
-								<td>User</td>
-								<td>2018-08-03</td>
-								<td>15:36:45</td>
-								<td>
-									<a href="#" class="btn btn-primary btn-sm">Permit</a>
-								</td>
-								<td>
-									<a href="#" class="btn btn-danger btn-sm">Ban</a>
-								</td>
-							</tr>
+							<?php $num = 1; ?>
+							@foreach($users as $user)
+								<tr>
+									<th scope="row">{{$num++}}</th>
+									<td>{{$user->name}}</td>
+									<td>{{$user->email}}</td>
+									<td>Admin</td>
+									<td>{{explode(' ', $user->created_at)[0]}}</td>
+									<td>{{explode(' ', $user->created_at)[1]}}</td>
+									<td>
+										<a href="#" class="btn btn-primary btn-sm">Permit</a>
+									</td>
+									<td>
+										<a href="#" class="btn btn-danger btn-sm">Ban</a>
+									</td>
+								</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>

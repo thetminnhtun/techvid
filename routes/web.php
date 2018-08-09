@@ -23,33 +23,30 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], function() {
     Route::get('/', function() {
-    	return view('admin.users.list');
-    });
-    Route::get('/user', function() {
-    	return view('admin.users.list');
-    });
-    Route::get('/category', function() {
-    	return view('admin.categories.list');
-    } );
-    Route::get('/image', function() {
-    	return view('admin.images.list');
-    } );
-
-    Route::get('/course', function() {
-    	return view('admin.courses.list');
+    	return redirect()->route('user.index');
     });
 
-    Route::get('/role', function() {
-    	return view('admin.roles.list');
-    });
+    Route::resource('/user', 'UserController');
 
-    Route::get('/permission', function() {
-    	return view('admin.permissions.list');
-    });
+    Route::resource('/category', 'CategoryController');
+    Route::get('/category/restore/{id}', 'CategoryController@restore');
 
-    Route::get('/message', function() {
-    	return view('admin.messages.list');
-    });
+    Route::get('/category/sub/{id}', 'SubCategoryController@index');
+    Route::get('/category/sub/create/{id}', 'SubCategoryController@create');
+    Route::post('/category/sub', 'SubCategoryController@store');
+    Route::get('/category/sub/{id}/edit', 'SubCategoryController@edit');
+    Route::put('/category/sub/{id}', 'SubCategoryController@update');
+    Route::delete('/category/sub/{id}', 'SubCategoryController@destroy');
+
+    Route::resource('/image', 'ImageController');
+
+    Route::resource('/course', 'CourseController');
+
+    Route::resource('/role', 'RoleController');
+
+    Route::resource('/permission', 'PermissionController');
+
+    Route::resource('/message', 'MessageController');
 
     Route::get('/enroll', function() {
     	return view('admin.enrolls.list');

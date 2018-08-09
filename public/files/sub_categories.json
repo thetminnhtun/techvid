@@ -1,0 +1,85 @@
+ [{
+        "id": "1",
+        "name": "PHP Basic",
+        "category_id": "1",
+        "created_at": "2018-08-10 00:07:44",
+        "updated_at": "2018-08-10 00:07:44",
+        "deleted_at": null
+    }, {
+        "id": "2",
+        "name": "PHP Intermediate",
+        "category_id": "1",
+        "created_at": "2018-08-10 00:07:56",
+        "updated_at": "2018-08-10 00:07:56",
+        "deleted_at": null
+    }, {
+        "id": "3",
+        "name": "PHP Advanced",
+        "category_id": "1",
+        "created_at": "2018-08-10 00:08:03",
+        "updated_at": "2018-08-10 00:08:03",
+        "deleted_at": null
+    }, {
+        "id": "4",
+        "name": "Java Basic",
+        "category_id": "2",
+        "created_at": "2018-08-10 00:08:23",
+        "updated_at": "2018-08-10 00:08:23",
+        "deleted_at": null
+    }, {
+        "id": "5",
+        "name": "Java Intermadiate",
+        "category_id": "2",
+        "created_at": "2018-08-10 00:08:29",
+        "updated_at": "2018-08-10 00:08:29",
+        "deleted_at": null
+    }, {
+        "id": "6",
+        "name": "Java Advanced",
+        "category_id": "2",
+        "created_at": "2018-08-10 00:08:35",
+        "updated_at": "2018-08-10 00:08:35",
+        "deleted_at": null
+    }, {
+        "id": "7",
+        "name": "Python Basic",
+        "category_id": "3",
+        "created_at": "2018-08-10 00:08:45",
+        "updated_at": "2018-08-10 00:10:19",
+        "deleted_at": null
+    }, {
+        "id": "8",
+        "name": "Python Intermadiate",
+        "category_id": "3",
+        "created_at": "2018-08-10 00:08:54",
+        "updated_at": "2018-08-10 00:08:54",
+        "deleted_at": null
+    }, {
+        "id": "9",
+        "name": "Python Advanced",
+        "category_id": "3",
+        "created_at": "2018-08-10 00:09:08",
+        "updated_at": "2018-08-10 00:09:08",
+        "deleted_at": null
+    }, {
+        "id": "10",
+        "name": "Nodejs Basic",
+        "category_id": "4",
+        "created_at": "2018-08-10 00:09:20",
+        "updated_at": "2018-08-10 00:09:20",
+        "deleted_at": null
+    }, {
+        "id": "11",
+        "name": "Nodejs Intermidate",
+        "category_id": "4",
+        "created_at": "2018-08-10 00:09:37",
+        "updated_at": "2018-08-10 00:09:37",
+        "deleted_at": null
+    }, {
+        "id": "12",
+        "name": "Nodejs Advanced",
+        "category_id": "4",
+        "created_at": "2018-08-10 00:09:48",
+        "updated_at": "2018-08-10 00:09:48",
+        "deleted_at": null
+    }]
