@@ -7,9 +7,9 @@
     <!-- Admin Content -->
     <section class="col-md-10">
       <div class="card ">
-        <h3 class="card-header bg-primary">
+        <h3 class="card-header bg-primary text-white">
         Edit Category
-          <a href="{{route('category.index')}}" class="btn btn-warning float-right">Back</a>
+          <a href="{{route('category.index')}}" class="btn btn-light float-right">Back</a>
         </h3>
         <div class="card-body table-secondary">
           <div class="row justify-content-center">

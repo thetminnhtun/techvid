@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VerifyUsersTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(SubCategoryTableSeeder::class);
+        $this->call(ImageTableSeeder::class);
     }
 }

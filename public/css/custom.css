@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bmwrapper {
+    margin: 20px auto;
+}
+
+.bmwrapper > * {
+    font-family: Cambria;
+}
+
+.bmwrapper > h1:first-child {
+    margin-top: 50px;
+}
+
+.bmwrapper > h1 {
+    color: rgb(60, 120, 177);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bmwrapper > h2 {
+    color: rgb(60, 120, 177);
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.bmwrapper > ol, .bmwrapper > ul {
+    background: #3f4c6b;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    padding-left: 40px;
+}
+
+.bmwrapper > li.burmese {
+    font-size: 16px;
+}
+
+.bmwrapper > li {
+    font-size: 18px;
+    list-style-position: inside;
+    color: #e7e7e7;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.bmwrapper > p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 2px;
+    background: #3f4c6b;
+    color: #e7e7e7;
+}
+
+.bmwrapper > img {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.bmwrapper > p.burmese {
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.bmwrapper > a {
+    color: #fff;
+}

@@ -36,7 +36,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], 
     Route::post('/category/sub', 'SubCategoryController@store');
     Route::get('/category/sub/{id}/edit', 'SubCategoryController@edit');
     Route::put('/category/sub/{id}', 'SubCategoryController@update');
-    Route::delete('/category/sub/{id}', 'SubCategoryController@destroy');
+    Route::delete('/category/sub/{parentId}/{id}', 'SubCategoryController@destroy');
+    Route::get('/category/sub/restore/{parentId}/{id}', 'SubCategoryController@restore');
 
     Route::resource('/image', 'ImageController');
 

@@ -18,13 +18,14 @@ class SubCategoryController extends Controller
     {
 
         $subCategories = SubCategory::where('category_id',$id)->get();
+        $categoriesTrash = SubCategory::where('category_id',$id)->onlyTrashed()->get();
 
        //check parent category exit or not
         if (!Category::find($id)) {
            return redirect('admin/category');
         }
 
-        return view('admin.sub_categories.list',compact('subCategories','id'));
+        return view('admin.sub_categories.list',compact('subCategories','id','categoriesTrash'));
     }
 
     /**
@@ -114,8 +115,27 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($parentId, $id)
     {
-        return 'subDestroy';
+        $category = SubCategory::find($id);
+        $result = $category->delete();
+        if ($result) {
+            return redirect("/admin/category/sub/{$parentId}")->with("success", "Sub Category was deleted Successfully!");
+        } else {
+            // notworking
+            return redirect()->back()->with("danger", "Sub Category deletion Error!");
+        }
+    }
+
+    public function restore($parentId, $id)
+    {
+        $category = SubCategory::onlyTrashed()->find($id);
+        $result = $category->restore();
+        if ($result) {
+            return redirect("/admin/category/sub/{$parentId}")->with("success", "Sub Category was restored Successfully!");
+        } else {
+            // notworking
+            return redirect()->back()->with("danger", "Sub Category restored Error!");
+        }
     }
 }

@@ -1,0 +1,681 @@
+@charset "UTF-8";
+/****** BM Libby ********/
+
+@font-face {
+    font-family: "bm";
+    src: url("../fonts/zawgyi.ttf");
+}
+
+.bm-nav-bg {
+    /* background: #3D434B; */
+    background: #222128;
+}
+
+.bm-center {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.bm-main-title {
+    color: #f7ffcc;
+    font-family: Cambria, sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.bm-third-title {
+    color: #f7ffcc;
+    font-family: Cambria, sans-serif;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.bm-para {
+    color: #c9e3ff;
+    font-family: Cambria, sans-serif;
+    font-size: 14.5px;
+    margin-top: 20px;
+    line-height: 25px;
+    text-indent: 50px;
+}
+
+.bm-code-block {
+    background: #343635;
+    border: 1px solid #8d8d8d;
+    margin: 20px 0;
+}
+
+.bm-code {
+    padding: 0;
+    font-family: "Droid Sans Mono";
+}
+
+.bm-xmp {
+    line-height: 25px;
+    font-size: 15px;
+    font-family: "Droid Sans Mono";
+    color: #9faf90;
+}
+
+.bm-remark {
+    background: #343635;
+    border: 1px solid #8d8d8d;
+    color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.english {
+    font-family: Cambria;
+}
+
+.georgia {
+    font-family: Georgia;
+}
+
+.burmese {
+    font-family: bm;
+}
+
+.bm-shade-img {
+    -webkit-box-shadow: 1px 3px 1px 0px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 1px 3px 1px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 3px 1px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #03534c;
+    outline: 1px solid slategrey;
+}
+
+.bm-footer-bg {
+    background: #263238;
+}
+
+.animation-delay5 {
+    animation-delay: 50ms;
+}
+
+.animation-delay10 {
+    animation-delay: 100ms;
+}
+
+.animation-delay15 {
+    animation-delay: 150ms;
+}
+
+.animation-delay20 {
+    animation-delay: 200ms;
+}
+
+.animation-delay25 {
+    animation-delay: 250ms;
+}
+
+.animation-delay30 {
+    animation-delay: 300ms;
+}
+
+.animation-delay35 {
+    animation-delay: 350ms;
+}
+
+.animation-delay40 {
+    animation-delay: 400ms;
+}
+
+.animation-delay45 {
+    animation-delay: 450ms;
+}
+
+.animation-delay50 {
+    animation-delay: 500ms;
+}
+
+.animation-delay55 {
+    animation-delay: 550ms;
+}
+
+.animation-delay60 {
+    animation-delay: 600ms;
+}
+
+.animation-delay65 {
+    animation-delay: 650ms;
+}
+
+.animation-delay70 {
+    animation-delay: 700ms;
+}
+
+.animation-delay75 {
+    animation-delay: 750ms;
+}
+
+.animation-delay80 {
+    animation-delay: 800ms;
+}
+
+.animation-delay85 {
+    animation-delay: 850ms;
+}
+
+.animation-delay90 {
+    animation-delay: 900ms;
+}
+
+.animation-delay95 {
+    animation-delay: 950ms;
+}
+
+.animation-delay100 {
+    animation-delay: 1000ms;
+}
+
+.animation-delay105 {
+    animation-delay: 1050ms;
+}
+
+.animation-delay110 {
+    animation-delay: 1100ms;
+}
+
+.animation-delay115 {
+    animation-delay: 1150ms;
+}
+
+.animation-delay120 {
+    animation-delay: 1200ms;
+}
+
+.animation-delay125 {
+    animation-delay: 1250ms;
+}
+
+.animation-delay130 {
+    animation-delay: 1300ms;
+}
+
+.animation-delay135 {
+    animation-delay: 1350ms;
+}
+
+.animation-delay140 {
+    animation-delay: 1400ms;
+}
+
+.animation-delay145 {
+    animation-delay: 1450ms;
+}
+
+.animation-delay150 {
+    animation-delay: 1500ms;
+}
+
+.animation-delay155 {
+    animation-delay: 1550ms;
+}
+
+.animation-delay160 {
+    animation-delay: 1600ms;
+}
+
+.animation-delay165 {
+    animation-delay: 1650ms;
+}
+
+.animation-delay170 {
+    animation-delay: 1700ms;
+}
+
+.animation-delay175 {
+    animation-delay: 1750ms;
+}
+
+.animation-delay180 {
+    animation-delay: 1800ms;
+}
+
+.animation-delay185 {
+    animation-delay: 1850ms;
+}
+
+.animation-delay190 {
+    animation-delay: 1900ms;
+}
+
+.animation-delay195 {
+    animation-delay: 1950ms;
+}
+
+.animation-delay200 {
+    animation-delay: 2000ms;
+}
+
+.animation-delay205 {
+    animation-delay: 2050ms;
+}
+
+.animation-delay210 {
+    animation-delay: 2100ms;
+}
+
+.animation-delay215 {
+    animation-delay: 2150ms;
+}
+
+.animation-delay220 {
+    animation-delay: 2200ms;
+}
+
+.animation-delay225 {
+    animation-delay: 2250ms;
+}
+
+.animation-delay230 {
+    animation-delay: 2300ms;
+}
+
+.animation-delay233 {
+    animation-delay: 2350ms;
+}
+
+.animation-delay240 {
+    animation-delay: 2400ms;
+}
+
+.animation-delay245 {
+    animation-delay: 2450ms;
+}
+
+.animation-delay250 {
+    animation-delay: 2500ms;
+}
+
+.animation-delay255 {
+    animation-delay: 2550ms;
+}
+
+.animation-delay260 {
+    animation-delay: 2600ms;
+}
+
+.animation-delay266 {
+    animation-delay: 2650ms;
+}
+
+.animation-delay270 {
+    animation-delay: 2700ms;
+}
+
+.animation-delay275 {
+    animation-delay: 2750ms;
+}
+
+.animation-delay280 {
+    animation-delay: 2800ms;
+}
+
+.animation-delay285 {
+    animation-delay: 2850ms;
+}
+
+.animation-delay290 {
+    animation-delay: 2900ms;
+}
+
+.animation-delay295 {
+    animation-delay: 2950ms;
+}
+
+.animation-delay300 {
+    animation-delay: 3000ms;
+}
+
+.animation-delay305 {
+    animation-delay: 3050ms;
+}
+
+.animation-delay310 {
+    animation-delay: 3100ms;
+}
+
+.animation-delay315 {
+    animation-delay: 3150ms;
+}
+
+.animation-delay320 {
+    animation-delay: 3200ms;
+}
+
+.animation-delay325 {
+    animation-delay: 3250ms;
+}
+
+.animation-delay330 {
+    animation-delay: 3300ms;
+}
+
+.animation-delay335 {
+    animation-delay: 3350ms;
+}
+
+.animation-delay340 {
+    animation-delay: 3400ms;
+}
+
+.animation-delay345 {
+    animation-delay: 3450ms;
+}
+
+.animation-delay345 {
+    animation-delay: 3450ms;
+}
+
+.animation-delay350 {
+    animation-delay: 3500ms;
+}
+
+.animation-delay355 {
+    animation-delay: 3550ms;
+}
+
+.animation-delay360 {
+    animation-delay: 3600ms;
+}
+
+.animation-delay365 {
+    animation-delay: 3650ms;
+}
+
+.animation-delay370 {
+    animation-delay: 3700ms;
+}
+
+.animation-delay375 {
+    animation-delay: 3750ms;
+}
+
+.animation-delay380 {
+    animation-delay: 3800ms;
+}
+
+.animation-delay385 {
+    animation-delay: 3850ms;
+}
+
+.animation-delay390 {
+    animation-delay: 3900ms;
+}
+
+.animation-delay395 {
+    animation-delay: 3950ms;
+}
+
+.animation-delay400 {
+    animation-delay: 4000ms;
+}
+
+.animation-delay405 {
+    animation-delay: 4050ms;
+}
+
+.animation-delay410 {
+    animation-delay: 4100ms;
+}
+
+.animation-delay415 {
+    animation-delay: 4150ms;
+}
+
+.animation-delay420 {
+    animation-delay: 4200ms;
+}
+
+.animation-delay425 {
+    animation-delay: 4250ms;
+}
+
+.animation-delay430 {
+    animation-delay: 4300ms;
+}
+
+.animation-delay435 {
+    animation-delay: 4350ms;
+}
+
+.animation-delay440 {
+    animation-delay: 4400ms;
+}
+
+.animation-delay445 {
+    animation-delay: 4450ms;
+}
+
+.animation-delay450 {
+    animation-delay: 4500ms;
+}
+
+.animation-delay455 {
+    animation-delay: 4550ms;
+}
+
+.animation-delay460 {
+    animation-delay: 4600ms;
+}
+
+.animation-delay465 {
+    animation-delay: 4650ms;
+}
+
+.animation-delay470 {
+    animation-delay: 4700ms;
+}
+
+.animation-delay475 {
+    animation-delay: 4750ms;
+}
+
+.animation-delay480 {
+    animation-delay: 4800ms;
+}
+
+.animation-delay485 {
+    animation-delay: 4850ms;
+}
+
+.animation-delay490 {
+    animation-delay: 4900ms;
+}
+
+.animation-delay495 {
+    animation-delay: 4950ms;
+}
+
+.animation-delay500 {
+    animation-delay: 5000ms;
+}
+
+/****************** Brighter Mynmar Fonts *********************/
+
+.bm-font {
+    font-family: Cambria;
+}
+
+.bm-font-10 {
+    font-size: 10px;
+}
+
+.bm-font-11 {
+    font-size: 11px;
+}
+
+.bm-font-12 {
+    font-size: 12px;
+}
+
+.bm-font-13 {
+    font-size: 13px;
+}
+
+.bm-font-14 {
+    font-size: 14px;
+}
+
+.bm-font-15 {
+    font-size: 15px;
+}
+
+.bm-font-16 {
+    font-size: 16px;
+}
+
+.bm-font-17 {
+    font-size: 17px;
+}
+
+.bm-font-18 {
+    font-size: 18px;
+}
+
+.bm-font-19 {
+    font-size: 19px;
+}
+
+.bm-font-20 {
+    font-size: 20px;
+}
+
+.bm-font-21 {
+    font-size: 21px;
+}
+
+.bm-font-22 {
+    font-size: 22px;
+}
+
+.bm-font-23 {
+    font-size: 23px;
+}
+
+.bm-font-24 {
+    font-size: 24px;
+}
+
+.bm-font-25 {
+    font-size: 25px;
+}
+
+.bm-font-26 {
+    font-size: 26px;
+}
+
+.bm-font-27 {
+    font-size: 27px;
+}
+
+.bm-font-28 {
+    font-size: 28px;
+}
+
+.bm-font-29 {
+    font-size: 29px;
+}
+
+.bm-font-30 {
+    font-size: 30px;
+}
+
+.bm-font-31 {
+    font-size: 31px;
+}
+
+.bm-font-32 {
+    font-size: 32px;
+}
+
+.bm-font-33 {
+    font-size: 33px;
+}
+
+.bm-font-34 {
+    font-size: 34px;
+}
+
+.bm-font-35 {
+    font-size: 35px;
+}
+
+.bm-font-36 {
+    font-size: 36px;
+}
+
+.bm-font-37 {
+    font-size: 37px;
+}
+
+.bm-font-38 {
+    font-size: 38px;
+}
+
+.bm-font-39 {
+    font-size: 39px;
+}
+
+.bm-font-40 {
+    font-size: 40px;
+}
+
+.bm-font-41 {
+    font-size: 41px;
+}
+
+.bm-font-42 {
+    font-size: 42px;
+}
+
+.bm-font-43 {
+    font-size: 43px;
+}
+
+.bm-font-44 {
+    font-size: 44px;
+}
+
+.bm-font-45 {
+    font-size: 45px;
+}
+
+.bm-font-46 {
+    font-size: 46px;
+}
+
+.bm-font-47 {
+    font-size: 47px;
+}
+
+.bm-font-48 {
+    font-size: 48px;
+}
+
+.bm-font-49 {
+    font-size: 49px;
+}
+
+.bm-font-50 {
+    font-size: 50px;
+}

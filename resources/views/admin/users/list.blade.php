@@ -9,11 +9,11 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card">
-				<h3 class="card-header bg-primary">All Users</h3>
+				<h3 class="card-header bg-primary text-white">All Users</h3>
 				<div class="card-body table-secondary">
 					<table class="table table-bordered table-hover">
 						<thead class="bg-success">
-							<tr>
+							<tr class="text-white">
 								<th scope="col">No</th>
 								<th scope="col">Name</th>
 								<th scope="col">Email</th>

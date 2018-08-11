@@ -9,9 +9,9 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card ">
-				<h3 class="card-header bg-primary">
+				<h3 class="card-header bg-primary text-white">
 					Category List
-					<a href="{{route('category.create')}}" class="btn btn-warning float-right">Create Category</a>
+					<a href="{{route('category.create')}}" class="btn btn-light float-right">Create Category</a>
 				</h3>
 				<div class="card-body table-secondary">
 					@if (session('success'))
@@ -26,7 +26,7 @@
                     @endif
 					<table class="table table-bordered ">
 						<thead class="bg-success">
-							<tr>
+							<tr class="text-white">
 								<th scope="col">No</th>
 								<th scope="col">Name</th>
 								<th scope="col">Sub</th>
@@ -55,6 +55,7 @@
 									</td>
 								</tr>
 							@endforeach
+							<!-- categroy from trash -->
 							@if($categoriesTrash)
 							<?php $num = 1 ?>
 								@foreach($categoriesTrash as $category)
@@ -72,6 +73,7 @@
 									</tr>
 							@endforeach
 							@endif
+							<!-- end cateory from trash -->
 						</tbody>
 					</table>
 				</div>
