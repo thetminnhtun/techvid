@@ -4,6 +4,7 @@ use App\SubCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Spatie\Permission\Models\Permission;
 
 class SubCategoryTableSeeder extends Seeder
 {
@@ -24,6 +25,8 @@ class SubCategoryTableSeeder extends Seeder
             	'name'=>$obj->name,
             	'category_id'=>$obj->category_id,
             ]);
+            
+            Permission::create(['name' => $obj->name,]);
         }
     }
 }

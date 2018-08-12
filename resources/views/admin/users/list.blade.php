@@ -11,6 +11,9 @@
 			<div class="card">
 				<h3 class="card-header bg-primary text-white">All Users</h3>
 				<div class="card-body table-secondary">
+					@if(session('status'))
+						<div class="alert alert-info">{{session('status')}}</div>
+					@endif
 					<table class="table table-bordered table-hover">
 						<thead class="bg-success">
 							<tr class="text-white">
@@ -31,7 +34,15 @@
 									<th scope="row">{{$num++}}</th>
 									<td>{{$user->name}}</td>
 									<td>{{$user->email}}</td>
-									<td>Admin</td>
+									<td>
+										@foreach($user->getRoleNames() as $roleName)
+										<a href="{{route('user.edit',$user->id)}}" class="btn btn-link
+										@if($user->id == 1)
+										 text-primary disabled
+										@endif
+										 ">{{$roleName}}</a>
+										@endforeach
+									</td>
 									<td>{{explode(' ', $user->created_at)[0]}}</td>
 									<td>{{explode(' ', $user->created_at)[1]}}</td>
 									<td>

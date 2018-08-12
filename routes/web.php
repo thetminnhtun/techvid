@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
-Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], function() {
+Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'admin'], function() {
     Route::get('/', function() {
     	return redirect()->route('user.index');
     });
@@ -41,6 +41,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], 
 
     Route::resource('/image', 'ImageController');
 
+    Route::resource('/video', 'VideoController');
+
     Route::resource('/course', 'CourseController');
 
     Route::resource('/role', 'RoleController');
@@ -55,7 +57,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'auth'], 
 
 });
 
-Route::group(['prefix' => 'user','namespace'=>'User', 'middleware'=> 'auth'], function() {
+Route::group(['prefix' => 'user','namespace'=>'User', 'middleware'=> 'user'], function() {
     Route::get('/', function() {
     	return 'User Dashboard';
     });

@@ -20,9 +20,7 @@ class CategoryTableSeeder extends Seeder
         $objs = json_decode($json);
 
         foreach ($objs as $obj) {
-            Category::create([
-            	'name'=>$obj->name,
-            ]);
+            Category::create(['name'=>$obj->name, ]);
         }
     }
 }

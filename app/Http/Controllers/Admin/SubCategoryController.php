@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\SubCategory;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class SubCategoryController extends Controller
 {
@@ -51,6 +52,8 @@ class SubCategoryController extends Controller
             'name'=>$request->name,
             'category_id'=>$request->category_id,
         ]);
+
+        Permission::create(['name' => $subCategory->name]);
 
         if ($subCategory) {
             return redirect("/admin/category/sub/{$subCategory->category_id}")->with("success", "New Sub Category was created Successfully!");

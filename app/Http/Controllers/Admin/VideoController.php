@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
-class RoleController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        return view('admin.roles.list',compact('roles'));
+        return 'ok';
     }
 
     /**
@@ -27,7 +24,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.roles.create');
+        return view('admin.videos.create');
     }
 
     /**
@@ -38,15 +35,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = new Role();
-        $role->name = $request->get("name");
-        $result = $role->save();
-
-        if ($result) {
-            return redirect('admin/role')->with("success", "Role Creation Successfully!");
-        } else {
-            return redirect()->back()->with("warning", "Role Creation Error!");
-        }
+        //
     }
 
     /**
