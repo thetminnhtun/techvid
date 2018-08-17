@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'admin'],
 
     Route::resource('/video', 'VideoController');
 
+    Route::get('/course/list/{id}', 'CourseController@showByCategory')->name('course.list');
     Route::resource('/course', 'CourseController');
 
     Route::resource('/role', 'RoleController');

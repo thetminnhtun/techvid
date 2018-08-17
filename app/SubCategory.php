@@ -19,4 +19,15 @@ class SubCategory extends Model
     {
     	return $this->belongsTo('App\Category');
     }
+
+    public function videos()
+    {
+        return $this->hasMany('App\Video');
+    }
+
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
+    }
+
 }

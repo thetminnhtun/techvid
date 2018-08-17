@@ -1,49 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container-fluid">
-	<div class="row">
-		<!-- Admin Sidebar -->
-		@include('layouts.sidebar.admin')
-		<!-- Admin Content -->
-		<section class="col-md-10">
-			<div class="card ">
-				<h3 class="card-header bg-primary">
-					Courses List
-					<a href="#" class="btn btn-warning float-right">Create Course</a>
-				</h3>
-				<div class="card-body table-secondary">
-					<table class="table table-bordered ">
-						<thead class="bg-success">
-							<tr>
-								<th scope="col">No</th>
-								<th scope="col">Name</th>
-								<th scope="col">Counts</th>
-								<th scope="col">Price</th>
-								<th scope="col">Edit</th>
-								<th scope="col">Delete</th>
-							</tr>
-						</thead>
-						<tbody class="bg-light">
-							<tr>
-								<th scope="row">1</th>
-								<td>PHP</td>
-								<td>200</td>
-								<td>20000 Ks</td>
-								<td>
-									<a href="#" class="btn btn-primary btn-sm">Edit</a>
-								</td>
-								<td>
-									<a href="#" class="btn btn-danger btn-sm">Delete</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</section>
-	</div>
+    <div class="row">
+        <!-- Admin Sidebar -->
+        @include('layouts.sidebar.admin')
+        <!-- Admin Content -->
+        <section class="col-md-10">
+            <ul class="list-group col-md-6">
+            @if(session('success'))
+                <div class="alert alert-success">{{session('success')}}</div>
+            @endif
+                <li class="list-group-item active">
+                    All Course
+                    <a class="btn btn-light btn-sm float-right" href="{{route('course.create')}}">
+                        New Course
+                    </a>
+                </li>
+                <?php $num = $sub_categories->firstItem(); ?>
+                @foreach($sub_categories as $sub_category)
+                <li class="list-group-item">
+                    <a href="{{url('admin/course/list/'.$sub_category->id)}}">
+                        {{$num++}}. {{$sub_category->name}}
+                        <span class="badge badge-warning ml-2">{{$sub_category->courses->count()}} </span>
+                    </a>
+                </li>
+                @endforeach
+                <div class="mt-2">
+                    {{ $sub_categories->links() }}
+                </div>
+            </ul>
+        </section>
+    </div>
 </div>
-
 @endsection

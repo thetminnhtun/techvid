@@ -18,15 +18,15 @@ class SubCategoryController extends Controller
     public function index($id)
     {
 
-        $subCategories = SubCategory::where('category_id',$id)->get();
-        $categoriesTrash = SubCategory::where('category_id',$id)->onlyTrashed()->get();
+        $subCategories   = SubCategory::where('category_id', $id)->get();
+        $categoriesTrash = SubCategory::where('category_id', $id)->onlyTrashed()->get();
 
-       //check parent category exit or not
+        //check parent category exit or not
         if (!Category::find($id)) {
-           return redirect('admin/category');
+            return redirect('admin/category');
         }
 
-        return view('admin.sub_categories.list',compact('subCategories','id','categoriesTrash'));
+        return view('admin.sub_categories.list', compact('subCategories', 'id', 'categoriesTrash'));
     }
 
     /**
@@ -37,7 +37,7 @@ class SubCategoryController extends Controller
     public function create($id)
     {
         $category = Category::find($id);
-        return view('admin.sub_categories.create',compact('category'));
+        return view('admin.sub_categories.create', compact('category'));
     }
 
     /**
@@ -49,8 +49,8 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         $subCategory = SubCategory::create([
-            'name'=>$request->name,
-            'category_id'=>$request->category_id,
+            'name'        => $request->name,
+            'category_id' => $request->category_id,
         ]);
 
         Permission::create(['name' => $subCategory->name]);
@@ -85,11 +85,10 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::find($id);
         //check parent category exit or not
         if (!$subCategory->category->id) {
-           return redirect('admin/category');
+            return redirect('admin/category');
         }
-        return view('admin.sub_categories.edit',compact('subCategory'));
+        return view('admin.sub_categories.edit', compact('subCategory'));
     }
-    
 
     /**
      * Update the specified resource in storage.
@@ -100,9 +99,9 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $subCategory = SubCategory::find($id);
+        $subCategory       = SubCategory::find($id);
         $subCategory->name = $request->name;
-        $result = $subCategory->save();
+        $result            = $subCategory->save();
 
         if ($result) {
             return redirect("/admin/category/sub/{$subCategory->category_id}")->with("success", "New Sub Category was updated Successfully!");
@@ -121,7 +120,7 @@ class SubCategoryController extends Controller
     public function destroy($parentId, $id)
     {
         $category = SubCategory::find($id);
-        $result = $category->delete();
+        $result   = $category->delete();
         if ($result) {
             return redirect("/admin/category/sub/{$parentId}")->with("success", "Sub Category was deleted Successfully!");
         } else {
@@ -133,7 +132,7 @@ class SubCategoryController extends Controller
     public function restore($parentId, $id)
     {
         $category = SubCategory::onlyTrashed()->find($id);
-        $result = $category->restore();
+        $result   = $category->restore();
         if ($result) {
             return redirect("/admin/category/sub/{$parentId}")->with("success", "Sub Category was restored Successfully!");
         } else {
