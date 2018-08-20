@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Enroll;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class Controller extends Controller
+class EnrollController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,14 @@ class Controller extends Controller
      */
     public function index()
     {
-        //
+        $enrolls = Enroll::all();
+        return view('admin.enrolls.list',compact('enrolls'));
+    }
+
+    public function image($image)
+    {
+        // $image = Message::where('image_name',$name)->firstOrFail()->image_name;
+        return view('admin.enrolls.image', compact('image'));
     }
 
     /**

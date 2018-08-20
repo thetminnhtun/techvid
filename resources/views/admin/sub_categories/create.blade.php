@@ -7,11 +7,11 @@
     <!-- Admin Content -->
     <section class="col-md-10">
       <div class="card ">
-        <h3 class="card-header bg-primary text-white">
+        <div class="card-header bg-primary text-white">
         Create Sub Category
-          <a href="{{route('category.index')}}" class="btn btn-light float-right">Back</a>
-        </h3>
-        <div class="card-body table-secondary">
+          <a href="{{route('category.index')}}" class="btn btn-light btn-sm float-right">Back</a>
+        </div>
+        <div class="card-body">
           <div class="row justify-content-center">
             <div class="card col-md-6">
               <div class="card-body">

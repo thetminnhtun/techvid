@@ -9,11 +9,11 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card ">
-				<h3 class="card-header bg-primary text-white">
+				<div class="card-header bg-primary text-white">
 					Sub Category List
-					<a href="{{url('admin/category/sub/create',$id)}}" class="btn btn-light float-right">Create Sub Category</a>
-				</h3>
-				<div class="card-body table-secondary">
+					<a href="{{url('admin/category/sub/create',$id)}}" class="btn btn-light btn-sm float-right">Create Sub Category</a>
+				</div>
+				<div class="card-body">
 					@if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -24,9 +24,9 @@
                             {{ session('danger') }}
                         </div>
                     @endif
-					<table class="table table-bordered ">
-						<thead class="bg-success">
-							<tr class="text-white"> 
+					<table class="table ">
+						<thead class="">
+							<tr class=""> 
 								<th scope="col">No</th>
 								<th scope="col">Sub Category</th>
 								<th scope="col">Parent</th>
@@ -34,7 +34,7 @@
 								<th scope="col">Delete</th>
 							</tr>
 						</thead>
-						<tbody class="bg-light">
+						<tbody class="">
 							<?php $num = 1 ?>
 							@foreach($subCategories as $category)
 								<tr>

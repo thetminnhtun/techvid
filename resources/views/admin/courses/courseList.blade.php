@@ -13,13 +13,13 @@
             @endif
                 <li class="list-group-item active">
                     {{$title}}
-                    <a class="btn btn-light btn-sm float-right" href="{{route('course.index')}}">
+                    <a class="btn btn-light btn-sm float-right" href="{{url("admin/course")}}">
                         Back
                     </a>
                 </li>
                 @foreach($courses as $course)
                 <li class="list-group-item">
-                    <a href="{{route('course.show',$course->id)}}">{{$course->name}}</a>
+                    <a href="{{url("admin/course/$course->id")}}">{{$course->name}}</a>
                 </li>
                 @endforeach
                 <div class="mt-2">

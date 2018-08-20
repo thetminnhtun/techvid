@@ -25,7 +25,7 @@
 
 
     @yield('css')
-<body>
+<body class="">
 
     <div id="app">
         @include('layouts.nav')

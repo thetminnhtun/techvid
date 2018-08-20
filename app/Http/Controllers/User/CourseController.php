@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
+use App\Course;
+use App\Enroll;
 use App\Http\Controllers\Controller;
+use App\SubCategory;
 use App\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Auth;
 
-class PermissionController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,32 +19,27 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::paginate(8);
-        return view('admin.permissions.list', compact('permissions'));
+        $sub_categories = SubCategory::paginate(7);
+        $enrolls        = Enroll::where('user_id', Auth::id())->get();
+        return view('user.courses.list', compact('sub_categories', 'enrolls'));
     }
 
-    public function add($user_id,$permission_name)
+    public function myCourse()
     {
-        $user = User::find($user_id);
-        $result = $user->givePermissionTo($permission_name);
-
-        if ($result) {
-            return redirect('admin/permission/' . $user_id);
-        } else {
-            return redirect()->back()->with("danger", "Permission Adding Fail!");
-        }
+        $myCourses = Enroll::where('user_id', Auth::id())->get();
+        $user      = User::find(Auth::id());
+        return view('user.courses.my_course', compact('myCourses', 'user'));
     }
 
-    public function remove($user_id,$permission_name)
+    public function download($id)
     {
-        $user = User::find($user_id);
-        $result = $user->revokePermissionTo($permission_name);
-
-        if ($result) {
-            return redirect('admin/permission/' . $user_id);
-        } else {
-            return redirect()->back()->with("danger", "Permission Removing Fail!");
+        $course = Course::find($id);
+        if (Auth::user()->can($course->subCategory->name)) {
+            $file   = public_path() . "/videos/uploads/". $course->video_name;
+            return response()->download($file);
         }
+
+        return redirect('/user');
     }
 
     /**
@@ -71,12 +69,15 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $user        = User::find($user_id);
-        $permissions = Permission::all();
-
-        return view('admin.permissions.show', compact('user', 'permissions'));
+        $title = SubCategory::findOrFail($id)->name;
+        $user  = User::find(Auth::id());
+        if (!$user->hasPermissionTo($title)) {
+            return redirect()->back();
+        }
+        $courses = Course::where('sub_category_id', $id)->paginate(5);
+        return view('user.courses.show', compact('courses', 'title'));
     }
 
     /**

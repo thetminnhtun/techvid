@@ -1,12 +1,18 @@
 [{
-    "name": "Foo",
-    "email": "foo@gmail.com",
+    "name": "TechVid Admin",
+    "email": "admin@techvid.com",
     "password": "$2y$10$yISXlQFUYtLc6FvhwDWgJOToc7lz22468jrywSXu4WgQjMPRb\/QnS",
     "verified": "1",
     "remember_token": "VSJHOZxZRNBspgQ88WWNXzUQtK71MlbgyOA3uZ0gabN6f40OIvQdVSaU8DLM"
 }, {
-    "name": "Bar",
-    "email": "bar@gmail.com",
+    "name": "Bob",
+    "email": "bob@gmail.com",
+    "password": "$2y$10$hUu\/DZU\/8dPzHmz3Wf7V2e1ZQoYQwqfZ8SodXqd3hW04\/ycRawabq",
+    "verified": "1",
+    "remember_token": "6FXkAUjxJNF6uSz0QTopzG4WpNoXcLa3U3bVxrjknlQXijZ3kSJ6Na1AXABr"
+},{
+    "name": "Alex",
+    "email": "alex@gmail.com",
     "password": "$2y$10$hUu\/DZU\/8dPzHmz3Wf7V2e1ZQoYQwqfZ8SodXqd3hW04\/ycRawabq",
     "verified": "1",
     "remember_token": "6FXkAUjxJNF6uSz0QTopzG4WpNoXcLa3U3bVxrjknlQXijZ3kSJ6Na1AXABr"

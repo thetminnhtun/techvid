@@ -41,27 +41,38 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware'=> 'admin'],
 
     Route::resource('/image', 'ImageController');
 
-    Route::resource('/video', 'VideoController');
-
     Route::get('/course/list/{id}', 'CourseController@showByCategory')->name('course.list');
     Route::resource('/course', 'CourseController');
 
     Route::resource('/role', 'RoleController');
 
+    Route::get('/permission/add/{user_id}/{permission_name}', 'PermissionController@add');
+    Route::get('/permission/remove/{user_id}/{permission_name}', 'PermissionController@remove');
     Route::resource('/permission', 'PermissionController');
 
+    Route::get('/message/sent', 'MessageController@sent')->name('message.sent');
+    Route::get('/message/image/{name}', 'MessageController@image')->name('message.image');
     Route::resource('/message', 'MessageController');
 
-    Route::get('/enroll', function() {
-    	return view('admin.enrolls.list');
-    });
+    Route::get('/enroll/image/{name}', 'EnrollController@image');
+    Route::resource('/enroll', 'EnrollController');
 
 });
 
 Route::group(['prefix' => 'user','namespace'=>'User', 'middleware'=> 'user'], function() {
     Route::get('/', function() {
-    	return 'User Dashboard';
+        return redirect('/user/course');
     });
+
+    Route::get('my_course', 'CourseController@myCourse');
+    Route::get('my_course/{id}', 'CourseController@show');
+    Route::get('my_course/download/{id}', 'CourseController@download');
+    Route::resource('/course', 'CourseController');
+
+    Route::get('/message/sent', 'MessageController@sent')->name('message.sent');
+    Route::get('/message/image/{name}', 'MessageController@image')->name('message.image');
+    Route::resource('/message', 'MessageController');
+    Route::resource('/enroll', 'EnrollController');
 });
 
 Route::get('/test', function() {

@@ -7,14 +7,14 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card">
-				<h3 class="card-header bg-primary text-white">All Users</h3>
-				<div class="card-body table-secondary">
+				<div class="card-header bg-primary text-white">All Users</div>
+				<div class="card-body">
 					@if(session('status'))
 					<div class="alert alert-info">{{session('status')}}</div>
 					@endif
-					<table class="table table-bordered table-hover">
-						<thead class="bg-success">
-							<tr class="text-white">
+					<table class="table">
+						<thead class="bg-light">
+							<tr class="">
 								<th scope="col">No</th>
 								<th scope="col">Name</th>
 								<th scope="col">Email</th>
@@ -25,7 +25,7 @@
 								<th scope="col">Ban</th>
 							</tr>
 						</thead>
-						<tbody class=bg-light>
+						<tbody class="">
 							<?php $num = 1; ?>
 							@foreach($users as $user)
 							<tr>
@@ -34,7 +34,7 @@
 								<td>{{$user->email}}</td>
 								<td>
 									@foreach($user->getRoleNames() as $roleName)
-									<a href="{{route('user.edit',$user->id)}}" class="btn btn-link
+									<a href="{{url('admin/user/'.$user->id.'/edit')}}" class="btn btn-link
 										@if($user->id == 1)
 										text-primary disabled
 										@endif
@@ -45,7 +45,7 @@
 								<td>{{explode(' ', $user->created_at)[1]}}</td>
 								
 								<td>
-									<a href="#" class="btn btn-primary btn-sm 
+									<a href="{{url('admin/permission',$user->id)}}" class="btn btn-primary btn-sm 
 										@if($user->id == 1)
 											disabled
 										@endif

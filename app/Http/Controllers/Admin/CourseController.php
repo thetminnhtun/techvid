@@ -19,7 +19,7 @@ class CourseController extends Controller
     public function index()
     {
 
-        $sub_categories = SubCategory::paginate(8);
+        $sub_categories = SubCategory::paginate(6);
         return view('admin.courses.list', compact('sub_categories'));
 
     }

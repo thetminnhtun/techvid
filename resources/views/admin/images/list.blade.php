@@ -13,10 +13,10 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card">
-				<h3 class="card-header bg-primary text-white">
+				<div class="card-header bg-primary text-white">
 					All Images
-					<a href="{{route('image.create')}}" class="btn btn-light float-right">Insert Image</a>
-				</h3>
+					<a href="{{url('admin/image/create')}}" class="btn btn-light btn-sm float-right">Insert Image</a>
+				</div>
 				<div class="card-body">
 					<div class="row">
 						

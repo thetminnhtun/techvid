@@ -24,6 +24,7 @@ class SubCategoryTableSeeder extends Seeder
             SubCategory::create([
             	'name'=>$obj->name,
             	'category_id'=>$obj->category_id,
+                'price'=>2000,
             ]);
             
             Permission::create(['name' => $obj->name,]);

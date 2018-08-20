@@ -9,11 +9,11 @@
 		<!-- Admin Content -->
 		<section class="col-md-10">
 			<div class="card ">
-				<h3 class="card-header bg-primary text-white">
+				<div class="card-header bg-primary text-white">
 					Category List
-					<a href="{{route('category.create')}}" class="btn btn-light float-right">Create Category</a>
-				</h3>
-				<div class="card-body table-secondary">
+					<a href="{{url('admin/category/create')}}" class="btn btn-light btn-sm float-right">Create Category</a>
+				</div>
+				<div class="card-body">
 					@if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -24,9 +24,9 @@
                             {{ session('danger') }}
                         </div>
                     @endif
-					<table class="table table-bordered ">
-						<thead class="bg-success">
-							<tr class="text-white">
+					<table class="table ">
+						<thead class="bg-light">
+							<tr class="">
 								<th scope="col">No</th>
 								<th scope="col">Name</th>
 								<th scope="col">Sub</th>
@@ -34,19 +34,19 @@
 								<th scope="col">Delete</th>
 							</tr>
 						</thead>
-						<tbody class="bg-light">
+						<tbody class="">
 							<?php $num = 1 ?>
 							@foreach($categories as $category)
 								<tr>
 									<th scope="row">{{$num++}}</th>
 									<td scope="row">{{$category->name}}</td>
-									<td><a href="{{url('admin/category/sub',$category->id)}}" class="btn btn-sm btn-warning">Sub</a>
+									<td><a href="{{url('admin/category/sub',$category->id)}}" class="btn btn-sm btn-success">Sub</a>
 									</td>
 									<td>
-										<a href="{{route('category.edit',['id'=>$category->id])}}" class="btn btn-primary btn-sm">Edit</a>
+										<a href="{{url('admin/category/'.$category->id.'/edit')}}" class="btn btn-primary btn-sm">Edit</a>
 									</td>
 									<td>
-										<form action="{{route('category.destroy',['id'=>$category->id])}}" method="post" 
+										<form action="{{url('admin/category/'.$category->id)}}" method="post" 
 											>
 											@csrf
 											@method('DELETE')

@@ -26,7 +26,14 @@
                     </a>
                 </li>
                 @else
-                <li class="nav-item dropdown">
+                @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin') }}">
+                        {{ Auth::user()->name }}
+                    </a>
+                </li>
+                @endif
+                {{-- <li class="nav-item dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button" v-pre="">
                         {{ Auth::user()->name }}
                         <span class="caret">
@@ -41,6 +48,15 @@
                             @csrf
                         </form>
                     </div>
+                </li> --}}
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                 </li>
                 @endguest
             </ul>

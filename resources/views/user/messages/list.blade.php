@@ -2,9 +2,9 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<!-- Admin Sidebar -->
-		@include('layouts.sidebar.admin')
-		<!-- Admin Content -->
+		<!-- User Sidebar -->
+		@include('layouts.sidebar.user')
+		<!-- Start User Content -->
 		<section class="col-md-10">
 			@if(session('success'))
 				<div class="alert alert-success">{{session('success')}}</div>
@@ -12,13 +12,13 @@
 			<div class="card ">
 				<div class="card-header bg-primary text-white d-flex">
 				<div class="mr-auto">All Messages</div>
-				<a class="btn btn-light btn-sm " href="{{url('admin/message')}}">
+				<a class="btn btn-light btn-sm " href="{{url('user/message')}}">
 					Inbox
 				</a>
-				<a class="btn btn-light btn-sm mx-2" href="{{url('admin/message/sent')}}">
+				<a class="btn btn-light btn-sm mx-2" href="{{url('user/message/sent')}}">
 					sent
 				</a>
-				<a class="btn btn-light btn-sm " href="{{url('admin/message/create')}}">
+				<a class="btn btn-light btn-sm " href="{{url('user/message/create')}}">
 					New Message
 				</a>
 				</div>
@@ -44,7 +44,7 @@
 								<td> {{$message->subject}}</td>
 								<td>
 									@if($message->image_name)
-										<a href="{{url('admin/message/image/'.$message->image_name)}}" class="btn btn-sm btn-info">Image</a>
+										<a href="{{url('user/message/image/'.$message->image_name)}}" class="btn btn-sm btn-info">Image</a>
 									@endif
 								</td>
 								<td> {{explode(' ',$message->updated_at)[0]}} </td>
@@ -56,6 +56,7 @@
 				</div>
 			</div>
 		</section>
+		<!-- End User Content -->
 	</div>
 </div>
 @endsection

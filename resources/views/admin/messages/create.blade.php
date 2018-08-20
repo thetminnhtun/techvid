@@ -9,14 +9,14 @@
       <div class="card ">
         <div class="card-header bg-primary text-white">
         Create Course
-        <a href="{{url('admin/course')}}" class="btn btn-light btn-sm float-right">Back</a>
+        <a href="{{url('admin/message')}}" class="btn btn-light btm-sm float-right">Back</a>
         </div>
         <div class="card-body table-secondary">
           <div class="row justify-content-center">
-            <div class="card col-md-6">
+            <div class="card col-md-8">
               <div class="card-body">
                 
-                <form action="{{url('admin/course')}}" method="post" enctype="multipart/form-data">
+                <form action="{{url('admin/message')}}" method="post" enctype="multipart/form-data">
                   @csrf
                   @if ($errors->any())
                   @foreach ($errors->all() as $error)
@@ -26,22 +26,18 @@
                   @endforeach
                   @endif
                   <div class="form-group">
-                    <label for="name">Course Title</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <label for="to">To :</label>
+                    <input type="text" class="form-control" id="to" name="to">
                   </div>
                   <div class="form-group">
-                    <label for="category">Choose Category</label>
-                    <select class="form-control" id="category" name="sub_category_id">
-                      @foreach($subCategories as $sub_category)
-                      <option value="{{$sub_category->id}}">{{$sub_category->name}}</option>
-                      @endforeach
-                    </select>
+                    <label for="image">Upload Image</label>
+                    <input type="file" class="form-control-file" id="image" name="file">
                   </div>
-                  <div class="form-group">
-                    <label for="video">Upload Video</label>
-                    <input type="file" class="form-control-file" id="video" name="file">
+                   <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <textarea class="form-control" id="subject" rows="3" name="subject"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-primary">Create</button>
+                  <button type="submit" class="btn btn-primary">Send</button>
                 </form>
                 
               </div>

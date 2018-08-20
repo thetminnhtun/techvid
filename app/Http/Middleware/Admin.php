@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -19,6 +19,8 @@ class Admin
         if (Auth::check()) {
             if (Auth::user()->hasRole('Admin')) {
                 return $next($request);
+            } elseif (Auth::user()->hasRole('User')) {
+               return redirect('/user');
             } else {
                 return redirect()->back();
             }

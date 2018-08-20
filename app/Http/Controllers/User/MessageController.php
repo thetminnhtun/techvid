@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Http\Requests\MessageRequest;
+use App\Message;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Auth;
 
-class PermissionController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,33 +17,22 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::paginate(8);
-        return view('admin.permissions.list', compact('permissions'));
+        $messages = Message::where('to',Auth::id())->get();
+        return view('user.messages.list', compact('messages'));
     }
 
-    public function add($user_id,$permission_name)
+    public function sent()
     {
-        $user = User::find($user_id);
-        $result = $user->givePermissionTo($permission_name);
-
-        if ($result) {
-            return redirect('admin/permission/' . $user_id);
-        } else {
-            return redirect()->back()->with("danger", "Permission Adding Fail!");
-        }
+        $messages = Message::where('from',Auth::id())->get();
+        return view('user.messages.list', compact('messages'));
     }
 
-    public function remove($user_id,$permission_name)
+    public function image($name)
     {
-        $user = User::find($user_id);
-        $result = $user->revokePermissionTo($permission_name);
-
-        if ($result) {
-            return redirect('admin/permission/' . $user_id);
-        } else {
-            return redirect()->back()->with("danger", "Permission Removing Fail!");
-        }
+        $image = Message::where('image_name',$name)->firstOrFail()->image_name;
+        return view('user.messages.image', compact('image'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,7 +41,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.messages.create');
     }
 
     /**
@@ -60,9 +50,26 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MessageRequest $request)
     {
-        //
+       
+        //check request file
+        $fileName = '';
+        if($request->file('file')){
+            $file = $request->file('file');
+            $fileName = time() . '_' .$file->getClientOriginalName();
+            $path = public_path(). '/imgs/uploads/';
+            $file->move($path,$fileName);
+        }
+
+        Message::create([
+            'from' => Auth::id(),
+            'to'=> 1,
+            'image_name'=> $fileName,
+            'subject'=> $request->get('subject'),
+        ]);
+
+        return redirect()->route('message.index')->with('success', 'Message was sent successfully !');
     }
 
     /**
@@ -71,12 +78,9 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $user        = User::find($user_id);
-        $permissions = Permission::all();
-
-        return view('admin.permissions.show', compact('user', 'permissions'));
+        //
     }
 
     /**
